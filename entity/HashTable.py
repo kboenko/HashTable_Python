@@ -43,10 +43,13 @@ class HashTable:
             self.storage[str(index)] = item
 
     def find(self, item):
-        if self.storage[str(self.getHashFunction(item))] and self.storage[str(self.getHashFunction(item))] == item:
-            return self.getHashFunction(item)
-        elif self.storage[str(self.getHashFunction(item))] and self.storage[str(self.getHashFunction(item))] != item:
 
+        m = str(self.getHashFunction(item))
+        print(len(self.storage))
+
+        if self.storage and self.storage.get(m) and self.storage.get(m) == item:
+            return self.getHashFunction(item)
+        elif self.storage and self.storage.get(m) and self.storage.get(m) != item:
                 count = 0
                 count1 = 0
                 slot = self.getHashFunction(item)
