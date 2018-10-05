@@ -1,5 +1,5 @@
 from math import fabs
-import traceback
+import sys
 
 class HashTable:
 
@@ -62,5 +62,7 @@ class HashTable:
                     return slot
                 except Exception as e:
                     print('BOOM! ' + e)
+                    print(sys.exc_value)
+                    print(sys.exc_traceback)
         else:
             return None
