@@ -16,13 +16,29 @@ class Set (HashTable.HashTable):
             slot = super().getHashFunction(item)
             del self.storage[str(slot)]
 
-    def intersection(self):
-        pass
+    def intersection(self, set):
 
-    def union(self):
-        pass
+        intersect = {}
 
-    def difference(self):
+        for i in self.storage.keys():
+            for j in set.storage.keys():
+                if self.storage[i] == set.storage[j]:
+                    intersect[i] = self.storage[i]
+                    continue
+
+        self.storage = intersect
+        return self
+
+    def union(self, set):
+        for i in set.storage.keys():
+            self.put(set.storage[i])
+        return self
+
+    def difference(self, set):
+        #abcd intersect ecax = bd
+        #ecax unoon bd = bdecax
+        #bdecax intersect abcd = ex
+        # result = bd union ex
         pass
 
     def issubset(self):

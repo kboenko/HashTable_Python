@@ -34,5 +34,29 @@ print('Вставили другую 5')
 
 print(st.storage)
 
-st.remove('5');
+st.remove('5')
 print(st.storage)
+
+s1 = Set.Set()
+s1.put('mama')
+s1.put('papa')
+s1.put('johnny')
+s1.put('tree')
+s1.put('eye')
+
+s2 = Set.Set()
+s2.put('papa')
+s2.put('bread')
+s2.put('johnny')
+s2.put('log')
+
+#print(s1.storage)
+#print(s2.storage)
+
+#s3 = s1.union(s2)
+#s4 = s1.intersection(s2)
+s5 = s1.difference(s2)
+
+#print(s3.storage)
+#print(s4.storage)
+print(s5.storage)
