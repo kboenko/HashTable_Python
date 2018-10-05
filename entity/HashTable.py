@@ -45,7 +45,6 @@ class HashTable:
     def find(self, item):
 
         m = str(self.getHashFunction(item))
-        print(len(self.storage))
 
         if self.storage and self.storage.get(m) and self.storage.get(m) == item:
             return self.getHashFunction(item)

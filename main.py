@@ -33,3 +33,6 @@ st.put('5')
 print('Вставили другую 5')
 
 print(st.storage)
+
+st.remove('5');
+print(st.storage)

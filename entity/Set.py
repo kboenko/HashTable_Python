@@ -11,8 +11,10 @@ class Set (HashTable.HashTable):
             index = super().seekSlot(item)
             self.storage[str(index)] = item
 
-    def remove(self):
-        pass
+    def remove(self, item):
+        if super().find(item) is not None:
+            slot = super().getHashFunction(item)
+            del self.storage[str(slot)]
 
     def intersection(self):
         pass
