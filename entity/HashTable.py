@@ -1,4 +1,5 @@
 from math import fabs
+import traceback
 
 class HashTable:
 
@@ -59,7 +60,7 @@ class HashTable:
                         elif not str(slot) in self.storage.keys() or (self.storage[str(slot)] != item and count1 == self.size):
                             return None
                     return slot
-                except Exception:
-                    print('BOOM!')
+                except Exception as e:
+                    print('BOOM! ' + e)
         else:
             return None
