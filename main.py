@@ -54,9 +54,23 @@ s2.put('log')
 #print(s2.storage)
 
 #s3 = s1.union(s2)
-#s4 = s1.intersection(s2)
+s4 = s1.intersection(s2)
 s5 = s1.difference(s2)
 
 #print(s3.storage)
-#print(s4.storage)
+print(s4.storage)
 print(s5.storage)
+
+# s3 = Set.Set()
+# s3.put('1')
+# s3.put('2')
+# s3.put('3')
+# s3.put('10')
+# s3.put('10001')
+#
+#
+# s4 = Set.Set()
+# s4.put('3')
+# s4.put('10001')
+#
+# print(s4.issubset(s3))

@@ -7,27 +7,24 @@ class Set (HashTable.HashTable):
 
 
     def put(self, item):
-        if len(self.storage.keys())>= 0 and len(self.storage.keys()) < self.size and super().find(item) is None:
-            index = super().seekSlot(item)
+        if len(self.storage.keys())>= 0 and len(self.storage.keys()) < self.size and self.find(item) is None:
+            index = self.seekSlot(item)
             self.storage[str(index)] = item
 
     def remove(self, item):
         if super().find(item) is not None:
-            slot = super().getHashFunction(item)
+            slot = self.getHashFunction(item)
             del self.storage[str(slot)]
 
     def intersection(self, set):
 
-        intersect = {}
+        intersect = Set()
 
         for i in self.storage.keys():
-            for j in set.storage.keys():
-                if self.storage[i] == set.storage[j]:
-                    intersect[i] = self.storage[i]
-                    continue
-
-        self.storage = intersect
-        return self
+            if set.find(self.storage[i]) is not None:
+                intersect.storage[i] = self.storage[i]
+                continue
+        return intersect
 
     def union(self, set):
         for i in set.storage.keys():
@@ -35,11 +32,13 @@ class Set (HashTable.HashTable):
         return self
 
     def difference(self, set):
-        #abcd intersect ecax = bd
-        #ecax unoon bd = bdecax
-        #bdecax intersect abcd = ex
-        # result = bd union ex
-        pass
 
-    def issubset(self):
-        pass
+        diff = Set()
+
+        for i in self.storage.keys():
+            if set.find(self.storage[i]) is None:
+                diff.storage[i] = self.storage[i]
+        return diff
+
+    def issubset(self, set):
+        return self.storage.items() == self.intersection(set).storage.items()
