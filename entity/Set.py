@@ -23,7 +23,6 @@ class Set (HashTable.HashTable):
         for i in self.storage.keys():
             if set.find(self.storage[i]) is not None:
                 intersect.storage[i] = self.storage[i]
-                continue
         return intersect
 
     def union(self, set):
