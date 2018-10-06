@@ -26,14 +26,13 @@ class Set (HashTable.HashTable):
         return intersect
 
     def union(self, set):
+        un = Set()
         for i in set.storage.keys():
-            self.put(set.storage[i])
-        return self
+            un.put(set.storage[i])
+        return un
 
     def difference(self, set):
-
         diff = Set()
-
         for i in self.storage.keys():
             if set.find(self.storage[i]) is None:
                 diff.storage[i] = self.storage[i]
