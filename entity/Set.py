@@ -19,10 +19,8 @@ class Set (HashTable.HashTable):
     def intersection(self, set):
 
         intersect = Set()
-
-        for i in self.storage.keys():
-            if set.find(self.storage[i]) is not None:
-                intersect.storage[i] = self.storage[i]
+        intersect.storage = {key: self.storage[key] for key in self.storage.keys() if
+                             set.find(self.storage[key]) is not None}
         return intersect
 
     def union(self, set):
@@ -33,9 +31,8 @@ class Set (HashTable.HashTable):
 
     def difference(self, set):
         diff = Set()
-        for i in self.storage.keys():
-            if set.find(self.storage[i]) is None:
-                diff.storage[i] = self.storage[i]
+        diff.storage = {key: self.storage[key] for key in self.storage.keys() if
+                             set.find(self.storage[key]) is None}
         return diff
 
     def issubset(self, set):
