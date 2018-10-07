@@ -1,5 +1,7 @@
-from entity import HashTable
-from entity import Set
+#from entity import HashTable
+#from entity import Set
+import entity.Set as Set
+import entity.HashTable as HashTable
 
 ht = HashTable.HashTable()
 
