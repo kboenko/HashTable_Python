@@ -7,7 +7,7 @@ class Set (HashTable.HashTable):
 
 
     def put(self, item):
-        if len(self.storage.keys())>= 0 and len(self.storage.keys()) < self.size and self.find(item) is None:
+        if self.find(item) is None:
             index = self.seekSlot(item)
             self.storage[str(index)] = item
 
