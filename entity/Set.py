@@ -25,10 +25,12 @@ class Set (HashTable.HashTable):
 
     def union(self, set):
         un = Set()
-        for i in set.storage.keys():
-            un.put(set.storage[i])
-        for j in self.storage.keys():
-            un.put(self.storage[j])
+
+        un.storage = {**self.storage, **set.storage}
+        # for i in set.storage.keys():
+        #     un.put(set.storage[i])
+        # for j in self.storage.keys():
+        #     un.put(self.storage[j])
         return un
 
     def difference(self, set):

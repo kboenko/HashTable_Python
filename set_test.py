@@ -52,7 +52,7 @@ class SetTest(unittest.TestCase):
         self.assertEqual(self.s1.difference(self.s2).storage, {'0.0': 'tree', '4.0': 'eye', '7.0': 'mama'})
 
     def test_union(self):
-        self.assertEqual(self.s1.union(self.s2).storage, {'4.0': 'eye', '5.0': 'papa', '11.0': 'johnny', '1.0': 'log', '0.0': 'tree', '7.0': 'mama', '2.0': 'bread'})
+        self.assertEqual(self.s1.union(self.s2).storage, {'1.0': 'log', '5.0': 'bread', '7.0': 'mama', '11.0': 'johnny', '2.0': 'papa', '4.0': 'eye', '0.0': 'tree'})
 
 
 
