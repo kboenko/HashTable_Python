@@ -27,6 +27,8 @@ class Set (HashTable.HashTable):
         un = Set()
         for i in set.storage.keys():
             un.put(set.storage[i])
+        for j in self.storage.keys():
+            un.put(self.storage[j])
         return un
 
     def difference(self, set):
