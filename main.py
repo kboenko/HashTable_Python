@@ -3,7 +3,6 @@
 import entity.Set as Set
 import entity.HashTable as HashTable
 import entity.Cache as Cache
-import entity.CacheItem as Item
 
 ht = HashTable.HashTable()
 
@@ -81,15 +80,17 @@ print(s3.storage)
 
 cache = Cache.Cache()
 
-cache.put(Item.CacheItem('5'))
-cache.put(Item.CacheItem('dd'))
-cache.put(Item.CacheItem('99'))
-cache.put(Item.CacheItem('88'))
+cache.put('5')
+cache.put('dd')
+cache.put('99')
+cache.put('88')
 
 print(cache.storage)
 
-for i in cache.storage:
-    print(cache.storage[i].value)
-    print(cache.storage[i].hits)
+cache.print()
 
 print(cache.find('dd'))
+
+
+print('^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^')
+cache.print()
