@@ -38,6 +38,10 @@ class Cache(HashTable.HashTable):
                 return None
 
     def put(self, item):
+
+        # TODO: перед вставкой поставить проверку, не заполнено ли хранилище до отказа.
+        # TODO: Если да - найти элемент с минимальным количеством обращений, удалить его и вставить на его место нужный.
+        # TODO: Иначе - просто вызываем метод родительского класса
         super().put(CacheItem.CacheItem(item))
 
     def print(self):
