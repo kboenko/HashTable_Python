@@ -86,6 +86,10 @@ cache.put(Item.CacheItem('dd'))
 cache.put(Item.CacheItem('99'))
 cache.put(Item.CacheItem('88'))
 
+print(cache.storage)
+
 for i in cache.storage:
     print(cache.storage[i].value)
     print(cache.storage[i].hits)
+
+print(cache.find('dd'))
