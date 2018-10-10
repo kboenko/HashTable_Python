@@ -2,6 +2,8 @@
 #from entity import Set
 import entity.Set as Set
 import entity.HashTable as HashTable
+import entity.Cache as Cache
+import entity.CacheItem as Item
 
 ht = HashTable.HashTable()
 
@@ -76,3 +78,14 @@ print(s3.storage)
 # s4.put('10001')
 #
 # print(s4.issubset(s3))
+
+cache = Cache.Cache()
+
+cache.put(Item.CacheItem('5'))
+cache.put(Item.CacheItem('dd'))
+cache.put(Item.CacheItem('99'))
+cache.put(Item.CacheItem('88'))
+
+for i in cache.storage:
+    print(cache.storage[i].value)
+    print(cache.storage[i].hits)
