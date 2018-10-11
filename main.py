@@ -3,6 +3,7 @@
 import entity.Set as Set
 import entity.HashTable as HashTable
 import entity.Cache as Cache
+import entity.CacheItem as cash_item
 
 ht = HashTable.HashTable()
 
@@ -80,10 +81,30 @@ print(s3.storage)
 
 cache = Cache.Cache()
 
-cache.put('5')
-cache.put('dd')
-cache.put('99')
-cache.put('88')
+cache.put(cash_item.CacheItem('5'))
+cache.put(cash_item.CacheItem('dd'))
+cache.put(cash_item.CacheItem('99'))
+cache.put(cash_item.CacheItem('88'))
+cache.put(cash_item.CacheItem('a'))
+cache.put(cash_item.CacheItem('bb'))
+cache.put(cash_item.CacheItem('ccc'))
+cache.put(cash_item.CacheItem('dddd'))
+cache.put(cash_item.CacheItem('ee1'))
+cache.put(cash_item.CacheItem('fff4'))
+cache.put(cash_item.CacheItem('g4444'))
+cache.put(cash_item.CacheItem('hh77'))
+cache.put(cash_item.CacheItem('i12'))
+cache.put(cash_item.CacheItem('j767676'))
+cache.put(cash_item.CacheItem('kkk9'))
+cache.put(cash_item.CacheItem('ll345'))
+cache.put(cash_item.CacheItem('m6655'))
+cache.put(cash_item.CacheItem('n34'))
+cache.put(cash_item.CacheItem('o369'))
+cache.put(cash_item.CacheItem('ppppppppppppp'))
+cache.put(cash_item.CacheItem('ppppppppppppp555'))
+cache.put(cash_item.CacheItem('ppppppppppppp8888'))
+cache.put(cash_item.CacheItem('ppppppppppppp0000'))
+cache.put(cash_item.CacheItem('ppppppppppppp3333'))
 
 print(cache.storage)
 
@@ -95,4 +116,3 @@ print(cache.find('dd'))
 print('^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^')
 cache.print()
 
-print(cache.tr())
