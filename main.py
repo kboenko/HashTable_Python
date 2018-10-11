@@ -94,3 +94,5 @@ print(cache.find('dd'))
 
 print('^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^')
 cache.print()
+
+print(cache.tr())
