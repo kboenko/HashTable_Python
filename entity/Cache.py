@@ -1,5 +1,5 @@
 from entity import HashTable
-from entity import CacheItem
+from math import fabs
 
 class Cache(HashTable.HashTable):
 
@@ -42,13 +42,28 @@ class Cache(HashTable.HashTable):
             slot = self.getHashFunction(item)
             del self.storage[str(slot)]
 
+    def seekSlot(self, item):
+            slot = self.getHashFunction(item)
+            count = 0
+
+            if str(slot) in self.storage.keys():
+                while True:
+                    slot = self.doSteps(slot, count)
+                    if not (str(slot) in self.storage.keys()):
+                        break
+                    else:
+                        self.hit_item(item)
+            return slot
+
     def put(self, item):
         if len(self.storage.keys()) and len(self.storage.keys()) == self.size:
             min_hits = min(set([item.hits for item in self.storage.values()]))
             items_with_min_hits = [item.value for item in self.storage.values() if item.hits == min_hits]
             self.remove(items_with_min_hits[0])
 
-        super().put(CacheItem.CacheItem(item))
+        if len(self.storage.keys()) >= 0 and len(self.storage.keys()) < self.size:
+            index = self.seekSlot(item.value)
+            self.storage[str(index)] = item
 
     def print(self):
         for i in self.storage:
