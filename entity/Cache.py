@@ -35,13 +35,19 @@ class Cache(HashTable.HashTable):
                 except Exception as e:
                     print('BOOM! ' + str(e))
             else:
-                return None
+                 return None
+
+    def remove(self, item):
+        if self.find(item) is not None:
+            slot = self.getHashFunction(item)
+            del self.storage[str(slot)]
 
     def put(self, item):
+        if len(self.storage.keys()) and len(self.storage.keys()) == self.size:
+            min_hits = min(set([item.hits for item in self.storage.values()]))
+            items_with_min_hits = [item.value for item in self.storage.values() if item.hits == min_hits]
+            self.remove(items_with_min_hits[0])
 
-        # TODO: перед вставкой поставить проверку, не заполнено ли хранилище до отказа.
-        # TODO: Если да - найти элемент с минимальным количеством обращений, удалить его и вставить на его место нужный.
-        # TODO: Иначе - просто вызываем метод родительского класса
         super().put(CacheItem.CacheItem(item))
 
     def print(self):
