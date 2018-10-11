@@ -11,9 +11,6 @@ class HashTable:
     def getHashFunction(self, item):
         hash = 0
 
-        if type(item).__name__ == 'CacheItem':
-            item = item.value
-
         for i in range (len(item)):
             hash = (hash << 5) - hash + ord(item[i])
         return fabs(int(hash % self.size))
